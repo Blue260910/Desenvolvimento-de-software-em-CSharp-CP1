@@ -10,7 +10,7 @@ Projeto desenvolvido em **C# (.NET 9)** para a disciplina de C# na FIAP, com foc
 
 ---
 
-## 👥 Integrantes | 3ESPY
+## Integrantes
 
 - **Victor Aranda** - RM99667
 - **Felipe Cortez** - RM99750
