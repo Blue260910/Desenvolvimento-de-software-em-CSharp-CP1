@@ -143,3 +143,4 @@ C:\Users\victo\OneDrive\Área de Trabalho\CP1\CP1\CheckPoint1\obj\Debug\net9.0\r
 C:\Users\victo\OneDrive\Área de Trabalho\CP1\CP1\CheckPoint1\obj\Debug\net9.0\CheckPoint1.pdb
 C:\Users\victo\OneDrive\Área de Trabalho\CP1\CP1\CheckPoint1\obj\Debug\net9.0\CheckPoint1.genruntimeconfig.cache
 C:\Users\victo\OneDrive\Área de Trabalho\CP1\CP1\CheckPoint1\obj\Debug\net9.0\ref\CheckPoint1.dll
+C:\Users\victo\OneDrive\Área de Trabalho\CP1\CP1\CheckPoint1\obj\Debug\net9.0\CheckPoint1.sourcelink.json

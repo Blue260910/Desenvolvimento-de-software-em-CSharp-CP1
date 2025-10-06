@@ -2,10 +2,10 @@
 
 namespace CheckPoint1;
 
-    public class Program
-    {
-        private static readonly EntityFrameworkService EfService = new();
-        private static readonly AdoNetService AdoService = new();
+public class Program
+{
+    private static readonly EntityFrameworkService EfService = new();
+    private static readonly AdoNetService AdoService = new();
         
         static async Task Main(string[] args)
         {
@@ -14,11 +14,6 @@ namespace CheckPoint1;
             Console.WriteLine("║   Sistema de Gestão de Loja Online   ║");
             Console.WriteLine("║    Entity Framework + ADO.NET        ║");
             Console.WriteLine("╚══════════════════════════════════════╝");
-                // Garante que o banco e as tabelas existem
-                using (var ctx = new CheckPoint1.CheckpointContext())
-                {
-                    ctx.Database.EnsureCreated();
-                }
             
             await InicializarBanco();
             
@@ -228,11 +223,12 @@ namespace CheckPoint1;
                 Console.WriteLine("║ 6 - Excluir Dados Antigos            ║");
                 Console.WriteLine("║                                      ║");
                 Console.WriteLine("║          PROCESSOS COMPLEXOS         ║");
-                Console.WriteLine("║ 7 - Processar Devolução              ║");
-                Console.WriteLine("║ 8 - Análise Performance              ║");
+                Console.WriteLine("║ 7 - Calcular Comissão                ║");
+                Console.WriteLine("║ 8 - Processar Devolução              ║");
+                Console.WriteLine("║ 9 - Análise Performance              ║");
                 Console.WriteLine("║                                      ║");
                 Console.WriteLine("║          UTILITÁRIOS                 ║");
-                Console.WriteLine("║ 9 - Testar Conexão                   ║");
+                Console.WriteLine("║ 10 - Testar Conexão                  ║");
                 Console.WriteLine("║                                      ║");
                 Console.WriteLine("║ 0 - Voltar ao Menu Principal         ║");
                 Console.WriteLine("╚══════════════════════════════════════╝");
@@ -251,9 +247,10 @@ namespace CheckPoint1;
                         case "5": AdoService.InserirPedidoCompleto(); break;
                         case "6": AdoService.ExcluirDadosAntigos(); break;
                         
-                        case "7": AdoService.ProcessarDevolucao(); break;
-                        case "8": AdoService.AnalisarPerformanceVendas(); break;
-                        case "9": AdoService.TestarConexao(); break;
+                        case "7": AdoService.CalcularComissao(); break;
+                        case "8": AdoService.ProcessarDevolucao(); break;
+                        case "9": AdoService.AnalisarPerformanceVendas(); break;
+                        case "10": AdoService.TestarConexao(); break;
                         case "0": voltar = true; break;
                         default:
                             Console.WriteLine("Opção inválida!");
@@ -282,11 +279,10 @@ namespace CheckPoint1;
             {
                 Console.WriteLine("Inicializando banco de dados...");
                 
+                using var context = new CheckpointContext();
                 
-                // TODO: Os alunos devem implementar no DbContext
-                // - Garantir que o banco seja criado: context.Database.EnsureCreated()
-                // - Aplicar migrations se necessário
-                // - Popular dados iniciais automáticamente via Seed Data
+                // Garantir que o banco seja criado
+                await context.Database.EnsureCreatedAsync();
                 
                 Console.WriteLine("Banco inicializado com sucesso!");
             }
